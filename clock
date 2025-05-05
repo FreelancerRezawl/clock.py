@@ -1,0 +1,21 @@
+import tkinter as tk
+from time import strftime
+
+# Create the main window
+root = tk.Tk()
+root.title("Simple Clock")
+
+# Create and configure the label
+label = tk.Label(root, font=("Helvetica", 48), background="black", foreground="white")
+label.pack(anchor="center")
+
+# Function to update time
+def time():
+    current_time = strftime("%H:%M:%S")
+    label.config(text=current_time)
+    label.after(1000, time)  # update every second
+
+time()
+
+# Run the GUI loop
+root.mainloop()
